@@ -23,6 +23,7 @@ import { useRemoveWishlistItemMutation } from "@/services/api/user/userApi";
 import { Heart, ShoppingBag } from "lucide-react";
 import { FooterUser } from "@/components/user/layouts/FooterUser";
 import { useNavigate } from "react-router-dom";
+import { Spinner } from "@/components/user/layouts/Spinner";
 
 export const WishListPage = () => {
   const toast = useToaster();
@@ -62,7 +63,7 @@ export const WishListPage = () => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Spinner />
   }
 
   return (

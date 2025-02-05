@@ -8,6 +8,7 @@ import { FooterUser } from "@/components/user/layouts/FooterUser"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { FilterSidebar } from "@/components/user/layouts/FilterSidebar"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Spinner } from "@/components/user/layouts/Spinner"
 
 export const ProductListPage = () => {
   const [page, setPage] = useState(1)
@@ -52,7 +53,7 @@ export const ProductListPage = () => {
   }
 
   if (isLoading) {
-    return <h3>Product page is loading...</h3>
+    return <Spinner />
   }
 
   if (error) {

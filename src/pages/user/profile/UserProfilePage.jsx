@@ -12,6 +12,7 @@ import { useProfileDataQuery } from "@/services/api/user/userApi";
 import { ProfileEditModal } from "@/components/user/modals/ProfileEditModal";
 import { useUpdateProfileMutation } from "@/services/api/user/userApi";
 import { useToaster } from "@/utils/Toaster";
+import { Spinner } from "@/components/user/layouts/Spinner";
 
 export function UserProfilePage() {
   const toast = useToaster();
@@ -60,7 +61,7 @@ export function UserProfilePage() {
   };
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Spinner />
   }
 
   if (!profileData) {

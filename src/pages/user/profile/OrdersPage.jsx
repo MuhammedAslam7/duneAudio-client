@@ -39,6 +39,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Spinner } from "@/components/user/layouts/Spinner";
 
 export function OrdersPage() {
   const navigate = useNavigate();
@@ -162,7 +163,7 @@ export function OrdersPage() {
     }
   };
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Spinner />
   if (isError) return <div>Error loading orders</div>;
 
   return (

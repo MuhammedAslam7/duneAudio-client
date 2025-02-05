@@ -19,6 +19,7 @@ import {
   useAddMoneyToWalletMutation,
   useVerifyPaymentMutation 
 } from "@/services/api/user/userApi";
+import { Spinner } from "@/components/user/layouts/Spinner";
 
 export const WalletPage = () => {
   const [amount, setAmount] = useState("5000");
@@ -86,6 +87,10 @@ export const WalletPage = () => {
   const handleQuickAdd = (value) => {
     setAmount(String(Number(amount) + value));
   };
+  if(isLoading) {
+    return <Spinner />
+  }
+  
 
   return (
     <div>

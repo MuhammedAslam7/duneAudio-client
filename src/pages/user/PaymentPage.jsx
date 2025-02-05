@@ -24,6 +24,7 @@ import {
 } from "@/services/api/user/userApi";
 import Breadcrumbs from "@/components/user/layouts/Breadcrumbs";
 import { useToaster } from "@/utils/Toaster";
+import { Spinner } from "@/components/user/layouts/Spinner";
 
 export function PaymentPage() {
   const toast = useToaster();
@@ -235,6 +236,10 @@ export function PaymentPage() {
       toast("Error", "Order placement failed!", "#ef4444");
     }
   };
+
+  if(isLoading) {
+    return <Spinner />
+  }
 
   return (
     <div className="container mx-auto">

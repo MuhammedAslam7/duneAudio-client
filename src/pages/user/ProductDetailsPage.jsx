@@ -23,6 +23,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useAddToCartMutation, useAddToWishlistMutation } from "@/services/api/user/userApi";
 import { useToaster } from "@/utils/Toaster";
+import { Spinner } from "@/components/user/layouts/Spinner";
 export function ProductDetailsPage() {
   const toast = useToaster();
   const [quantity, setQuantity] = useState(1);
@@ -122,7 +123,7 @@ export function ProductDetailsPage() {
   };
 
   if (isLoading) {
-    return <p>Loading Product Details......</p>;
+    return <Spinner />
   }
   if (!product || error) {
     return <p>Unable to see product details, please try again later....</p>;

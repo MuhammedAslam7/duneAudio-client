@@ -32,6 +32,7 @@ import { Input } from "@/components/ui/input";
 import { useFormik } from "formik";
 import { jsPDF } from "jspdf";
 import * as XLSX from "xlsx";
+import { Spinner } from "@/components/user/layouts/Spinner";
 
 export const OrderDetailsPage = () => {
   const { orderId } = useParams();
@@ -245,12 +246,7 @@ export const OrderDetailsPage = () => {
     }
   };
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-50">
-        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
-      </div>
-    );
+  if (isLoading) { <Spinner />
   }
 
   return (
