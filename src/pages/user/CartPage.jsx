@@ -124,7 +124,7 @@ export const CartPage = () => {
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900">SHOPPING CART</h1>
           {items?.length !== 0 && (
-            <Link to="/home">
+            <Link to="/">
               <Button variant="outline" className="flex items-center gap-2">
                 <ArrowLeft className="h-4 w-4" />
                 Continue Shopping
@@ -142,7 +142,7 @@ export const CartPage = () => {
               <p className="text-gray-600 mb-8">
                 Looks like you haven't added any items to your cart yet.
               </p>
-              <Link to="/home">
+              <Link to="/product-list">
                 <Button size="lg" className="px-8">
                   Start Shopping
                 </Button>

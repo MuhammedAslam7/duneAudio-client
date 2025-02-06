@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
 const navItems = [
-  { name: "Home", href: "/home" },
+  { name: "Home", href: "/" },
   { name: "Products", href: "/product-list" },
   { name: "About", href: "/about-page" },
-  { name: "Contact Us", href: "/contact" },
+  { name: "Contact Us", href: "/about-page?scrollTo=contact" },
 ];
 
 export const SecondNavbarUser = () => {

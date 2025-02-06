@@ -7,6 +7,7 @@ import { SecondNavbarUser } from "@/components/user/layouts/SecondNavbarUser";
 import { FooterUser } from "@/components/user/layouts/FooterUser";
 
 export function UserHomePage() {
+  console.log("Home")
   const { data, isLoading, error } = useUserHomeQuery();
 
   const topCard = data?.slice(0, 4);

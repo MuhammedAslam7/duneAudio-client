@@ -7,5 +7,5 @@ export const UserLoginAuth = () => {
     return <Outlet />;
   }
 
-  return <Navigate to="/user/home" replace />;
+  return <Navigate to="/" replace />;
 };

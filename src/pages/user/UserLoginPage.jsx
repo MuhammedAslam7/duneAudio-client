@@ -52,7 +52,7 @@ export const UserLoginPage = () => {
     }
     try {
       const response = await signIn(formData).unwrap();
-      navigate("/home");
+      navigate("/");
       const user = response?.data?.user;
       const token = response?.accessToken;
       dispatch(setUser({ user }));

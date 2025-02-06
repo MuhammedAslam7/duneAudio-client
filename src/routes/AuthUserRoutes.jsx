@@ -28,19 +28,19 @@ import { AboutPage } from "@/pages/user/AboutPage"
 export const AuthUserRoutes = () => {
   return (
     <Routes>
-      <Route element={<UserLoginAuth />}>
+      {/* <Route element={<UserLoginAuth />}> */}
         <Route path="/verify-otp" element={<OTPPage />} />
         <Route path="/sign-up" element={<UserSignupPage />} />
         <Route path="/sign-in" element={<UserLoginPage />} />
-      </Route>
+      {/* </Route> */}
       
       <Route path="/reset-password" element={<ResetPasswordPage />} />
       <Route path="/reset-verify-otp" element={<OTPPageResetPassword />} />
       <Route path="/confirm-reset-password" element={<ResetPasswordConfirmPage />} />
 
       {/* User */}
-            <Route element={<UserProtectedRoute allowedRoles={["user", "admin"]} />}>
-              <Route path="/home" element={<UserHomePage />} />
+              <Route path="/" element={<UserHomePage />} />
+            {/* <Route element={<UserProtectedRoute allowedRoles={["user", "admin"]} />}> */}
               <Route path="/product-details/:id" element={<ProductDetailsPage />} />
               <Route path="/product-list" element={<ProductListPage />} />
               <Route path="/cart" element={<CartPage />} />
@@ -57,7 +57,7 @@ export const AuthUserRoutes = () => {
               <Route path="/payment-failed-page" element={<PaymentFailedPage />} />
               <Route path="/about-page" element={<AboutPage />} />
               <Route path="/*" element={<ErrorPage />} />
-            </Route>
+            {/* </Route> */}
       
     </Routes>
   )

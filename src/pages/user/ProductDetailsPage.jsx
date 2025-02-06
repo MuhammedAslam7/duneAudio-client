@@ -24,7 +24,9 @@ import { useSelector } from "react-redux";
 import { useAddToCartMutation, useAddToWishlistMutation } from "@/services/api/user/userApi";
 import { useToaster } from "@/utils/Toaster";
 import { Spinner } from "@/components/user/layouts/Spinner";
+import { AuthSidebar } from "@/components/user/layouts/AuthSidebar";
 export function ProductDetailsPage() {
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated)
   const toast = useToaster();
   const [quantity, setQuantity] = useState(1);
   const [currentImage, setCurrentImage] = useState(0);
@@ -40,7 +42,7 @@ export function ProductDetailsPage() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [addToCart] = useAddToCartMutation();
   const [addToWishlist]  = useAddToWishlistMutation()
-  const userId = useSelector((state) => state?.user?.userId);
+  const [showSidebar, setShowSidebar] = useState(false)
   const {product} = data || {}
   useEffect(() => {
     console.log("Product variants in useEffect:", product?.variants);
@@ -75,6 +77,9 @@ export function ProductDetailsPage() {
   };
 
   const toggleWishlist = async() => {
+    if(!isAuthenticated) {
+      return setShowSidebar(true)
+    }
     try {
 
       const response = await addToWishlist({productId: product._id, variantId}).unwrap()
@@ -98,6 +103,10 @@ export function ProductDetailsPage() {
   };
 
   const handleAddToCart = async () => {
+
+    if(!isAuthenticated) {
+      return setShowSidebar(true)
+    }
     try {
       const response = await addToCart({
         productId: id,
@@ -399,6 +408,7 @@ export function ProductDetailsPage() {
           </div>
         </div>
       </div>
+      {showSidebar && <AuthSidebar onClose={() => setShowSidebar(false)} />}
     </div>
   );
 }
