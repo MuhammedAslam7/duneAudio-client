@@ -1,5 +1,5 @@
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronDown, Mail, Phone, MapPin } from "lucide-react";
@@ -25,7 +25,6 @@ const Section = ({ children, className }) => (
 );
 
 export const AboutPage = () => {
-  const contactRef = useRef(null);
   const location = useLocation();
   const [activeAccordion, setActiveAccordion] = useState(null);
 
