@@ -124,6 +124,7 @@ export const OrderDetailsPage = () => {
 
     yPos += 10;
     doc.setFont("helvetica", "bold");
+    doc.text(`Total Discount: ₹${order.totalDiscount.toFixed(2)}`, 140, yPos);
     doc.text(`Total Amount: ₹${order.payableAmount.toFixed(2)}`, 140, yPos);
 
     doc.save(`Dune_Audio_Invoice_${order.orderId}.pdf`);
@@ -159,6 +160,7 @@ export const OrderDetailsPage = () => {
       ]),
       [],
       ["Total Amount", `₹${order.payableAmount.toFixed(2)}`],
+      ["Total Discount", `₹${order.totalDiscount.toFixed(2)}`]
     ];
 
     const ws = XLSX.utils.aoa_to_sheet(wsData);
