@@ -103,7 +103,7 @@ export function OrderSuccessPage() {
             )}
           </AnimatePresence>
 
-          <Link to="/home" className="block">
+          <Link to="/" className="block">
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}

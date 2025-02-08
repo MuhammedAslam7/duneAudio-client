@@ -67,7 +67,7 @@ export function Dashboard() {
       <main className="flex-1 overflow-auto bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
         <NavbarAdmin isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} pageName="DASHBOARD" />
         <div className="container p-6 space-y-8">
-          <div className="grid mx-auto gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid mx-auto gap-4 md:grid-cols-2 lg:grid-cols-3">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
@@ -75,7 +75,7 @@ export function Dashboard() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{totalRevenue}</div>
-                <p className="text-xs text-blue-600">+20.1% from last month</p>
+                {/* <p className="text-xs text-blue-600">+20.1% from last month</p> */}
               </CardContent>
             </Card>
             <Card>
@@ -85,7 +85,7 @@ export function Dashboard() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{ordersCount}</div>
-                <p className="text-xs text-pink-600">+180.1% from last month</p>
+                {/* <p className="text-xs text-pink-600">+180.1% from last month</p> */}
               </CardContent>
             </Card>
             <Card>
@@ -95,10 +95,10 @@ export function Dashboard() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{customers}</div>
-                <p className="text-xs text-cyan-600">+19% from last month</p>
+                {/* <p className="text-xs text-cyan-600">+19% from last month</p> */}
               </CardContent>
             </Card>
-            <Card>
+            {/* <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Conversion Rate</CardTitle>
                 <Star className="h-4 w-4 text-yellow-600" />
@@ -107,7 +107,7 @@ export function Dashboard() {
                 <div className="text-2xl font-bold">2.8%</div>
                 <p className="text-xs text-yellow-600">+1.2% from last month</p>
               </CardContent>
-            </Card>
+            </Card> */}
           </div>
 
      

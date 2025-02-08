@@ -240,12 +240,17 @@ export const OrderDetailsPage = () => {
       case "return requested":
         return "bg-orange-200 text-orange-800";
       case "returned":
-        return "bg-orange-500 text-white";
+        return "bg-orange-300 text-orange-900";
+      case "partially returned":
+        return "bg-purple-200 text-purple-800";
+      case "partially delivered":
+        return "bg-teal-200 text-teal-800";
+      case "partially shipped":
+        return "bg-indigo-200 text-indigo-800";
       default:
         return "bg-gray-100 text-gray-800";
     }
   };
-
   if (isLoading) { <Spinner />
   }
 

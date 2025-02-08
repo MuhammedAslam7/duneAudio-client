@@ -226,7 +226,7 @@ export function ProductDetailsPage() {
             <h2 className="text-2xl font-bold text-gray-900">
               {product?.productName}
             </h2>
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
                   <Star
@@ -238,7 +238,7 @@ export function ProductDetailsPage() {
               <span className="text-xs text-muted-foreground">
                 - 2 Customer Reviews
               </span>
-            </div>
+            </div> */}
           </div>
 
           <div className="flex items-baseline gap-2">

@@ -16,7 +16,6 @@ export const UserSignupPage = () => {
   });
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
-  //rtk query mutation hook
   const [signup, { isLoading }] = useSignUpMutation();
 
   const handleChange = (e) => {
@@ -25,51 +24,51 @@ export const UserSignupPage = () => {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
-  //client side validation
   const validateForm = () => {
     let newErrors = {};
+  
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^\d{10}$/; // Validates 10-digit phone numbers
+    const phoneRegex = /^\d{10}$/;
     const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; // At least 8 characters, one uppercase, one lowercase, one digit, one special character
-    const nameRegex = /^[a-zA-Z\s]{3,30}$/; // Only letters and spaces, min 3, max 30 characters
-    //Name validation
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; 
+    
+    const nameRegex = /^[a-zA-Z\s]+$/;
+  
     if (!formData.username.trim()) {
       newErrors.username = "Name is Required";
     } else if (!nameRegex.test(formData.username)) {
-      newErrors.username =
-        "Name must be in 3-30 characters and contain only letters";
+      newErrors.username = "Name must contain only letters and spaces";
+    } else if (formData.username.length < 3 || formData.username.length > 30) {
+      newErrors.username = "Name must be between 3-30 characters";
     }
-    //Email validation
+  
     if (!formData.email.trim()) {
       newErrors.email = "Email is Required";
     } else if (!emailRegex.test(formData.email)) {
       newErrors.email = "Email is Invalid";
     }
-    //phone validation
+  
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone Number is Required";
+    } else if (!phoneRegex.test(formData.phone)) {
+      newErrors.phone = "Phone Number must be exactly 10 digits and contain only numbers";
     }
-    //  else if (!phoneRegex.test(formData.phone)) {
-    //   newErrors.phone = "Phone Number must be 10 digits";
-    // }
-    // Password validation
+  
     if (!formData.password.trim()) {
       newErrors.password = "Password is required";
+    } else if (!passwordRegex.test(formData.password)) {
+      newErrors.password =
+        "Password must be at least 8 characters, with one uppercase, one lowercase, one number, and one special character";
     }
-    // } else if (!passwordRegex.test(formData.password)) {
-    //   newErrors.password = "Password must be at least 8 characters, with uppercase, lowercase, number, and special character";
-    // }
-
-    // Confirm password validation
+  
     if (!formData.password2.trim()) {
       newErrors.password2 = "Confirm password is required";
     } else if (formData.password !== formData.password2) {
       newErrors.password2 = "Passwords do not match";
     }
+  
     return newErrors;
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validateForm();

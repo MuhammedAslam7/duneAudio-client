@@ -106,8 +106,8 @@ export const ProductCard = ({
           {productName}
         </h3>
         <p className="mt-2 text-sm text-gray-600 line-clamp-2">{description}</p>
-        <div className="mt-3 flex items-center space-x-2">
-          <div className="flex items-center">
+        {/* <div className="mt-3 flex items-center space-x-2"> */}
+          {/* <div className="flex items-center">
             {[...Array(5)].map((_, i) => (
               <Star
                 key={i}
@@ -118,7 +118,7 @@ export const ProductCard = ({
             ))}
           </div>
           <span className="text-sm text-gray-500">({reviewCount})</span>
-        </div>
+        </div> */}
       </CardContent>
       <CardFooter className="p-4 pt-0 flex items-center justify-between">
         <div className="flex flex-col">

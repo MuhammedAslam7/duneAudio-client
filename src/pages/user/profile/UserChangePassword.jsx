@@ -34,12 +34,16 @@ export function UserChangePassword() {
     if (formData.newPassword !== formData.newPassword2) {
       return toast("Error", "New Password are Not Matching", "#ff0000");
     }
+    if(formData.newPassword == formData.password) {
+      return toast("Same-password", "New and old password is name", "#ff0000")
+    }
     setModalOpen(true);
   };
 
   const confirmChangePassword = async () => {
     const password = formData.password;
     const newPassword = formData.newPassword;
+
     try {
       await changePassword({ password, newPassword }).unwrap();
       toast("success", "Password Updated Successfully", "#22c55e");

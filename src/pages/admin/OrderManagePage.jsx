@@ -47,6 +47,7 @@ export const OrderManagePage = () => {
     document.documentElement.classList.toggle("dark", isDarkMode);
   }, [isDarkMode]);
 
+  
   const getStatusColor = (status) => {
     switch (status?.toLowerCase()) {
       case "pending":
@@ -59,13 +60,20 @@ export const OrderManagePage = () => {
         return "bg-green-200 text-green-800";
       case "cancelled":
         return "bg-red-100 text-red-800";
-      case "return requested": 
-      return "bg-orange-200 text-orange-800"
+      case "return requested":
+        return "bg-orange-200 text-orange-800";
+      case "returned":
+        return "bg-orange-300 text-orange-900";
+      case "partially returned":
+        return "bg-purple-200 text-purple-800";
+      case "partially delivered":
+        return "bg-teal-200 text-teal-800";
+      case "partially shipped":
+        return "bg-indigo-200 text-indigo-800";
       default:
         return "bg-gray-100 text-gray-800";
     }
   };
-
   const handleOrderStatusChange = async (orderId, newStatus) => {
     try {
       await updateOrderStatus({ orderId, newStatus }).unwrap();
@@ -180,17 +188,29 @@ export const OrderManagePage = () => {
 
               <Card className="bg-gray-900 border-gray-800">
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-base font-medium text-gray-400">
-                    Payment Details
+                  <CardTitle className="text-base font-medium text-gray-400 flex justify-between">
+                    <div>Payment Details</div>
+                    <div>Payment Status</div>
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex justify-between">
+                  <div>
+
                   <p className="text-2xl font-bold text-white">
                     ₹{order?.payableAmount?.toFixed(2)}
                   </p>
                   <p className="mt-1 text-sm text-gray-400 capitalize">
                     {order?.paymentMethod}
                   </p>
+                  </div>
+                  <div>
+                  <Badge
+                    className="text-sm px-3 py-1"
+                  >
+                    {order?.paymentStatus}
+                  </Badge>
+
+                  </div>
                 </CardContent>
               </Card>
 
